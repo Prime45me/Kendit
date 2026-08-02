@@ -6,8 +6,20 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kendits Studios",
-  description: "All kinds of Edits at the Kendits Studio",
+  metadataBase: new URL("https://www.kenditscreativestudios.com"),
+  title: {
+    default: "Kendits Creative Studios",
+    template: "%s | Kendits Creative Studios",
+  },
+  description: "Official website for Kendits Creative Studios.",
+  openGraph: {
+    title: "Kendits Creative Studios",
+    description: "Official website for Kendits Creative Studios.",
+    url: "https://www.kenditscreativestudios.com",
+    siteName: "Kendits Creative Studios",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -19,9 +31,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            {children}
+          {children}
         </ThemeProvider>
-        </body>
+      </body>
     </html>
   );
 }
