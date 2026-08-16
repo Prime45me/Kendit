@@ -22,6 +22,31 @@ export const metadata: Metadata = {
   },
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  const isVercelPreview = Boolean(process.env.VERCEL_URL?.includes(".vercel.app"));
+
+  return {
+    ...metadata,
+    robots: isVercelPreview
+      ? {
+          index: false,
+          follow: false,
+          googleBot: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+          },
+        },
+  };
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
