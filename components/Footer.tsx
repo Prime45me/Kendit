@@ -36,9 +36,9 @@ const Footer = () => {
                 <img src="/footer-grid.svg" alt="" className='w-full h-full opacity-50' />
             </div>
             <div className='flex flex-col items-center'>
-                <h1 className='heading lg:max-w-[45vw] '>
+                <h2 className='heading lg:max-w-[45vw] '>
                     Ready to take <span className='text-purple'>your ideas</span> to the next level?
-                </h1>
+                </h2>
                 <p className='text-white-200 md:mt-10 my-5 mx-3 text-center'>
                     Reach out to us today and let's discuss how we can help you achieve your goals
                 </p>

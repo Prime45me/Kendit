@@ -29,7 +29,7 @@ const Services = () => {
   return (
     <section className="py-20 w-full" id="services">
       <div className="flex flex-col items-center justify-center">
-        <motion.h1 
+        <motion.h2 
           className="heading text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ const Services = () => {
           viewport={{ once: true }}
         >
           Our <span className="text-purple">Services</span>
-        </motion.h1>
+        </motion.h2>
          <motion.p 
           className="text-white-200 mt-5 text-center max-w-4xl font-light text-base md:text-lg px-4"
           initial={{ opacity: 0, y: 20 }}

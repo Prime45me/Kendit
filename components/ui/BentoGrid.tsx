@@ -86,7 +86,7 @@ export const BentoGridItem = ({
           {img && (
             <img
               src={img}
-              alt={img}
+              alt="Kendits Creative Studios feature visual"
               className={cn(imgClassName, "object-cover object-center ")}
             />
           )}
@@ -98,8 +98,7 @@ export const BentoGridItem = ({
           {spareImg && (
             <img
               src={spareImg}
-              alt={spareImg}
-
+              alt="Kendits Creative Studios brand accent image"
               className="object-cover object-center w-full h-full"
             />
           )}
