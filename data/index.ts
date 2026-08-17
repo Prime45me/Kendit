@@ -126,7 +126,7 @@ export const testimonials = [
   },
   {
     quote:
-      "I've worked with many media agencies, but Kendits Studios stands out for their promptness, innovation, and technical expertise. Their visual aesthetics are exactly what we needed to capture our target audience.",
+      "We've worked with many media agencies, but Kendits Studios stands out for their promptness, innovation, and technical expertise. Their visual aesthetics are exactly what we needed to capture our target audience.",
     name: "Trophy Tavern",
     title: "VP of Communications at Quantum Dynamics",
   },
