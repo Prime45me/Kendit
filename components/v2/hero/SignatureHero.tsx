@@ -171,7 +171,19 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     return () => {
       ctx.revert();
     };
-  }, [isReducedMotion, dimensions.width, dimensions.height, cx, cy, isMobile]);
+  }, [isReducedMotion, dimensions.width, cx, cy, isMobile]);
+
+  // Mobile browser chrome changes the viewport height while scrolling. Refresh the
+  // existing pin in place instead of rebuilding it and leaving stale pin styles.
+  useEffect(() => {
+    if (typeof window === "undefined" || isReducedMotion || dimensions.width === 0) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [isReducedMotion, dimensions.height, dimensions.width]);
 
   return (
     <section
