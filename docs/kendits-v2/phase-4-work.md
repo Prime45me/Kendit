@@ -44,7 +44,7 @@ Editorial layout:
 - Giant typographic heading: THE GOOD / STUFF.
 - Visual gradient handoff from Phase 3 hero (no hard section break)
 - Featured full-width Stay Original (video preview on hover)
-- Side-by-side medium Peniel Spelling Bee + Lifeless
+- Side-by-side medium Peniel French Week Celebration + Internal Conflict
 - Full-width Wave Speedway
 - "View All Work →" CTA with hover fill animation
 - Project count label ("4 selected productions")
@@ -59,8 +59,8 @@ public/stay_original.mp4 — copied from Kendits Creative for web use.
 | # | Project | Treatment | Readiness |
 |---|---|---|---|
 | 01 | Stay Original | FEATURED — full-width, hover video | READY |
-| 02 | Peniel Spelling Bee '25 | Medium — thumbnail only | PARTIAL |
-| 03 | Lifeless | Medium — thumbnail only | PARTIAL |
+| 02 | Peniel French Week Celebration '25 | Medium — thumbnail only | PARTIAL |
+| 03 | Internal Conflict: A Cinematic Short Film | Medium — thumbnail only | PARTIAL |
 | 04 | Wave Speedway | Full-width — thumbnail only | PARTIAL |
 
 ---

@@ -19,7 +19,7 @@ export interface TheGoodStuffProps {
  *
  * Layout:
  *   [01 STAY ORIGINAL] ── FEATURED, full-width, video preview on hover
- *   [02 PENIEL]  [03 LIFELESS] ── medium, side-by-side
+ *   [02 PENIEL]  [03 INTERNAL CONFLICT] ── medium, side-by-side
  *   [04 WAVE SPEEDWAY] ── full-width
  *
  * See: docs/kendits-v2/phase-4-content-matrix.md
@@ -146,7 +146,7 @@ export const TheGoodStuff: React.FC<TheGoodStuffProps> = ({ className }) => {
           </div>
         )}
 
-        {/* ── Secondary row — Peniel + Lifeless (side-by-side) ── */}
+        {/* ── Secondary row — Peniel + Internal Conflict (side-by-side) ── */}
         {secondary.length >= 2 && (
           <div className="mb-16 lg:mb-20 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
             <ProjectCard project={secondary[0]} index={1} />

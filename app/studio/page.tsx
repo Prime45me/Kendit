@@ -32,8 +32,8 @@ export default function StudioPage() {
       {/* 5. HOW WE WORK */}
       <CreativeApproach />
 
-      {/* 6. BEHIND THE WORK */}
-      <BehindTheWork />
+      {/* 6. BEHIND THE WORK - reserved for future content */}
+      {/* <BehindTheWork /> */}
 
       {/* 7. LET'S CREATE */}
       <StudioCTA />

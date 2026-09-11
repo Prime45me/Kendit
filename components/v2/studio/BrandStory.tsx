@@ -45,7 +45,7 @@ export const BrandStory: React.FC = () => {
               className="w-full aspect-[4/5] bg-white/5 relative overflow-hidden"
             >
               <img
-                src="/project2.jpeg"
+                src="/kendits2.jpeg"
                 alt="Kendits Studio Creative Process"
                 className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
               />

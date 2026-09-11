@@ -60,7 +60,7 @@ export const StudioHero: React.FC = () => {
           className="mt-16 md:mt-24 w-full aspect-[16/9] md:aspect-[21/9] bg-surface rounded-2xl border border-white/10 relative overflow-hidden shadow-[0_0_60px_rgba(0,238,220,0.08)]"
         >
           <img
-            src="/b1.svg"
+            src="/kendits-studio.PNG"
             alt="Kendits Studio Atmosphere"
             className="w-full h-full object-cover opacity-85"
           />

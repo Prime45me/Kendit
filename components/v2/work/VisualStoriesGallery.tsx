@@ -54,6 +54,7 @@ export const VisualStoriesGallery: React.FC = () => {
 
   return (
     <section
+      id="brand-creative-work"
       aria-labelledby="visual-stories-heading"
       className="relative py-24 sm:py-36 border-t border-white/8 bg-canvas overflow-hidden"
     >

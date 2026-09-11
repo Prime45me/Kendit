@@ -56,11 +56,11 @@ trialvideo
 Stay Original
 → full video confirmed available
 
-Peniel Spelling Bee
+Peniel French Week Celebration
 → some supporting visual assets exist
 → full project media package not yet confirmed
 
-Lifeless
+Internal Conflict: A Cinematic Short Film
 → project exists in known Kendits content
 → full media package not yet confirmed
 
@@ -130,8 +130,8 @@ Use this structure:
 | Project | Client | Category | Year | Full Video | Thumbnail | Preview | BTS | Supporting Assets | Homepage Candidate | Readiness | Confidence | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Stay Original | ? | ? | ? | YES | ? | ? | ? | ? | TBD | PARTIAL/READY | HIGH | Full video confirmed |
-| Peniel Spelling Bee | ? | ? | ? | ? | ? | ? | ? | YES/UNKNOWN | TBD | PARTIAL | MEDIUM | Asset association must be verified |
-| Lifeless | ? | ? | ? | ? | ? | ? | ? | ? | TBD | UNKNOWN/PARTIAL | ? | Investigate |
+| Peniel French Week Celebration | ? | ? | ? | ? | ? | ? | ? | YES/UNKNOWN | TBD | PARTIAL | MEDIUM | Asset association must be verified |
+| Internal Conflict: A Cinematic Short Film | ? | ? | ? | ? | ? | ? | ? | ? | TBD | UNKNOWN/PARTIAL | ? | Investigate |
 | Wave Speedway | ? | ? | ? | ? | ? | ? | ? | ? | TBD | UNKNOWN/PARTIAL | ? | Investigate |
 ```
 
@@ -156,8 +156,8 @@ Do not convert UNKNOWN into YES by assumption.
 The agent must first investigate:
 
 1. Stay Original
-2. Peniel Spelling Bee
-3. Lifeless
+2. Peniel French Week Celebration
+3. Internal Conflict: A Cinematic Short Film
 4. Wave Speedway
 
 These names already exist in the Kendits project/content context.

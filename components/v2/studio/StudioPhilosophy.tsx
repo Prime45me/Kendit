@@ -27,11 +27,11 @@ export const StudioPhilosophy: React.FC = () => {
             className="space-y-6"
           >
             <h3 className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight text-white uppercase tracking-tight">
-              [Approved Philosophy Statement on Intentionality and Craft]
+              We turn real moments into lasting visual stories.
             </h3>
             
             <p className="text-lg md:text-xl text-text-secondary font-light max-w-2xl mx-auto pt-6">
-              [Supporting philosophy copy expanding on Kendits' approach to creative thinking, visual direction, and storytelling in media production. This area is preserved for the official text once available.]
+              At Kendits Creative Studios, every frame has a purpose. We bring thoughtful direction, cinematic craft, and emotional honesty together to create work that feels true to the people, brands, and moments at its centre.
             </p>
           </motion.div>
         </div>

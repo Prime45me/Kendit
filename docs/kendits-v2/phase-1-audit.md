@@ -9,7 +9,7 @@ This Phase 1 technical audit evaluates the current state of the Kendits Next.js 
 ### Key Audit Findings
 
 1. **Codebase Lineage & Nature**: The existing codebase is built on Next.js 16 (App Router) with React 18, TypeScript, and Tailwind CSS. Functionally, it is an adaptation of a popular developer portfolio template (JavaScript Mastery "portfolio"), heavily modified with Aceternity UI effects and customized for Kendits Studios. 
-2. **Real vs. Legacy Content**: Authentic Kendits media productions (e.g., *Stay Original - Live Performance*, *Peniel Spelling Bee '25 Recap*, *Lifeless - Short Film*, and *Wave Speedway - Music Video*) and genuine legal terms (governed by Ghanaian law) are present. However, residual template artifacts persist throughout the codebase, including developer tech stack badges (`React`, `Next.js`, `Three.js`, `Tailwind`), sponsor logos (`Cloudinary`, `Appwrite`, `Hostinger`, `Stream`, `Docker`), CV-style work experience cards, and placeholder corporate client titles.
+2. **Real vs. Legacy Content**: Authentic Kendits media productions (e.g., *Stay Original - Live Performance*, *Peniel French Week Celebration '25 Recap*, *Internal Conflict: A Cinematic Short Film*, and *Wave Speedway - Music Video*) and genuine legal terms (governed by Ghanaian law) are present. However, residual template artifacts persist throughout the codebase, including developer tech stack badges (`React`, `Next.js`, `Three.js`, `Tailwind`), sponsor logos (`Cloudinary`, `Appwrite`, `Hostinger`, `Stream`, `Docker`), CV-style work experience cards, and placeholder corporate client titles.
 3. **Missing Hero Video Asset**: While the strategic target for the V2 hero is an immersive `KENDITS` mask with background video reveal, **no local video files exist anywhere in the repository**. The current homepage features a static Aceternity Spotlight and Text Generate effect with no video player, background video, or media stream.
 4. **Asset Bloat**: The `/public` directory contains over **16.3 MB of orphaned SVGs** (`p1.svg` at 7.27 MB, `p3.svg` at 4.42 MB, `grid.svg` at 3.62 MB, `b1.svg` at 2.70 MB) containing embedded base64 raster bitmaps from the predecessor template.
 5. **Tooling & Build Health**: 
@@ -438,8 +438,8 @@ The `/public` directory contains **47 static files**. Analysis reveals severe as
 | `/b5.svg` | SVG | 500 x 300 | **438 KB** | Unused template file | **DEAD ASSET / REMOVE** |
 | `/gsap.svg` | SVG | Vector | **155 KB** | Used in `projects[3].iconLists` | **REMOVE** (Unneeded tech badge) |
 | `/exp3.svg` | SVG | Vector | **135 KB** | Used in `workExperience[2]` | **REPLACE** |
-| `/project3.jpeg` | JPEG | 1280 x 720 | **103 KB** | Used in `projects[2]` (*Lifeless*) | **KEEP** (Real Kendits production thumbnail) |
-| `/project2.jpeg` | JPEG | 1280 x 720 | **86 KB** | Used in `projects[1]` (*Peniel Spelling Bee*) | **KEEP** (Real Kendits production thumbnail) |
+| `/project3.jpeg` | JPEG | 1280 x 720 | **103 KB** | Used in `projects[2]` (*Internal Conflict: A Cinematic Short Film*) | **KEEP** (Real Kendits production thumbnail) |
+| `/project2.jpeg` | JPEG | 1280 x 720 | **86 KB** | Used in `projects[1]` (*Peniel French Week Celebration*) | **KEEP** (Real Kendits production thumbnail) |
 | `/bg.png` | PNG | 552 x 352 | **85 KB** | Card background in `RecentProjects` | **REFACTOR** |
 | `/project4.jpeg` | JPEG | 1280 x 720 | **81 KB** | Used in `projects[3]` (*Wave Speedway*) | **KEEP** (Real Kendits production thumbnail) |
 | `/project1.jpeg` | JPEG | 1280 x 720 | **67 KB** | Used in `projects[0]` (*Stay Original*) | **KEEP** (Real Kendits production thumbnail) |
@@ -676,7 +676,7 @@ TOTAL INITIAL JS PAYLOAD:        > 2.5 MB (Uncompressed)
 ### REUSE (Retain with Minimal Modifications)
 - **Legal Terms & Conditions (`components/ui/TermsModal.tsx`)**: Fully formed, authentic Ghanaian jurisdiction legal agreement covering payments, revisions, and deliverables.
 - **Service Copy (`components/Services.tsx`)**: The written descriptions for *Visual Production*, *Content Creation*, *Brand Identity*, *Social Media*, and *Web Development* accurately represent Kendits Studios.
-- **Featured Project Metadata (`data/index.ts` - `projects`)**: Real video titles, descriptions, and URLs for *Stay Original*, *Peniel Spelling Bee '25*, *Lifeless*, and *Wave Speedway*.
+- **Featured Project Metadata (`data/index.ts` - `projects`)**: Real video titles, descriptions, and URLs for *Stay Original*, *Peniel French Week Celebration '25*, *Internal Conflict: A Cinematic Short Film*, and *Wave Speedway*.
 - **Dark Theme Provider (`app/provider.tsx`)**: Clean `next-themes` implementation.
 - **Utility Functions (`lib/utils.ts`)**: Standard `cn()` class merger.
 - **SEO Route Handlers (`app/robots.ts`, `app/sitemap.ts`)**: Clean, functional search engine endpoints.

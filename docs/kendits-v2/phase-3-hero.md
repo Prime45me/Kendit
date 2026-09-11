@@ -11,7 +11,7 @@ SIGNATURE HERO (Masked KENDITS Typography → Continuous Video Reveal → Fullsc
     ↓
 STUDIO STATEMENT & MANIFESTO ("We craft cinematic visuals that define presence and elevate perception.")
     ↓
-SELECTED WORK / THE GOOD STUFF (4 Phase 4 Productions: Stay Original, Peniel, Lifeless, Wave Speedway)
+SELECTED WORK / THE GOOD STUFF (4 Phase 4 Productions: Stay Original, Peniel, Internal Conflict, Wave Speedway)
     ↓
 PROOF / CREDIBILITY (Restrained verified client roster: PC Construction, Noble Games, Peniel, Footwear Empire, Luxstays, Raku)
     ↓

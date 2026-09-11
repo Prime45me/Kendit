@@ -104,12 +104,12 @@ export const portfolioProjects: KenditsProject[] = [
     credits: "kenDiTs Media — University of Ghana SRC '25",
   },
   {
-    // ── Peniel Spelling Bee ──────────────────────────────────────────────────
+    // ── Peniel French Week Celebration ───────────────────────────────────────
     // READY — full video confirmed at /public/peniel-french-week.MOV
-    id: "peniel-spelling-bee",
-    slug: "peniel-spelling-bee",
-    title: "Peniel Spelling Bee '25",
-    client: "Peniel School",
+    id: "peniel-french-week",
+    slug: "peniel-french-week",
+    title: "Peniel French Week '25",
+    client: "Peniel Educational Complex",
     category: "EVENT RECAP",
     year: 2025,
     thumbnail: "/peniel-thumbnails/IMG_4837_00-00-000.png",
@@ -117,42 +117,42 @@ export const portfolioProjects: KenditsProject[] = [
     externalLink:
       "https://www.instagram.com/reel/DRaMXKhDYmd/?igsh=eTc1MXBlMnA3d2o3",
     shortDescription:
-      "Official recap and highlights for the Peniel Spelling Bee 2025 competition.",
+      "Official recap and highlights for the Peniel French Week Celebration.",
     featured: false,
     readiness: "READY",
     fullVideo: "/peniel-french-week.MOV",
     heroImage: null,
     gallery: [],
     overview:
-      "Kendits produced the official recap film for the Peniel Spelling Bee Competition 2025 — covering the competition proceedings, winner reveal, and award ceremony with dynamic editing and motion graphics.",
+      "Kendits produced the official recap film for the Peniel French Week Celebration 2025 — capturing the week's activities, performances, and memorable moments with dynamic editing and motion graphics.",
     services: ["Event Coverage", "Video Editing", "Motion Graphics"],
     role: "Production & Post-Production",
     challenge: null,
     approach: null,
     result: null,
-    credits: "Peniel Spelling Bee 2025 — Peniel School",
+    credits: "Peniel French Week Celebration 2025 — Peniel School",
   },
   {
-    // ── Lifeless ─────────────────────────────────────────────────────────────
+    // ── Internal Conflict: A Cinematic Short Film ────────────────────────────
     // READY — full video confirmed at /public/the-inner-battle.MP4
     id: "lifeless",
     slug: "lifeless",
-    title: "Lifeless",
+    title: "Internal Conflict: A Cinematic Short Film",
     client: null,
     category: "SHORT FILM",
     year: null,
-    thumbnail: "/project3.jpeg",
+    thumbnail: "/internal-conflict-thumbnails.jpeg",
     preview: "/the-inner-battle.MP4",
     externalLink: "https://vt.tiktok.com/ZSmF7CUgv/",
     shortDescription:
-      "A narrative short film — cinematic framing, intentional colour grading, story-driven direction.",
+      "A cinematic short film shaped by intentional framing, colour grading, and story-driven direction.",
     featured: false,
     readiness: "READY",
     fullVideo: "/the-inner-battle.MP4",
     heroImage: null,
     gallery: [],
     overview:
-      "Lifeless is a short-form narrative film produced and directed by Kendits Creative Studios. The project demonstrates Kendits' approach to cinematic storytelling outside of commercial work.",
+      "Internal Conflict is a cinematic short film produced and directed by Kendits Creative Studios. The project demonstrates Kendits' approach to story-driven filmmaking outside of commercial work.",
     services: ["Direction", "Cinematography", "Colour Grading", "Editing"],
     role: "Director, Cinematographer & Editor",
     challenge: null,
