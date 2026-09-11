@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 
-const svgToDataUri = require("mini-svg-data-uri");
 
 const colors = require("tailwindcss/colors");
 const {
@@ -27,6 +26,40 @@ const config = {
     },
     extend: {
       colors: {
+        // V2 Obsidian Canvas & Surfaces (#050505, #0B0D0F, #1A1C1E)
+        canvas: {
+          DEFAULT: "#050505",
+          subtle: "#0B0D0F",
+          elevated: "#1A1C1E",
+          hover: "#22252A",
+          navy: "#070A14",
+          "blue-black": "#04060A",
+          charcoal: "#121418",
+        },
+        surface: {
+          DEFAULT: "#0B0D0F",
+          elevated: "#1A1C1E",
+          hover: "#22252A",
+        },
+        // V2 Signature Luminous Accents (Treated as Light Sources)
+        "kendits-cyan": {
+          DEFAULT: "#00EEDC",
+          deep: "#0E424A",
+          glow: "rgba(0, 238, 220, 0.25)",
+        },
+        "kendits-purple": {
+          DEFAULT: "#7D1589",
+          deep: "#3A1054",
+          glow: "rgba(125, 21, 137, 0.25)",
+        },
+        "kendits-turquoise": "#00EEDC",
+        "kendits-green": "#10B981",
+        "kendits-blue": "#3B82F6",
+        // Pure White Typography Contrast
+        "text-primary": "#FFFFFF",
+        "text-secondary": "rgba(255, 255, 255, 0.70)",
+        "text-muted": "rgba(255, 255, 255, 0.45)",
+        // Legacy template colors (preserved for backward compatibility)
         black: {
           DEFAULT: "#000",
           100: "#000319",
@@ -75,6 +108,22 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-manrope)", "system-ui", "-apple-system", "sans-serif"],
+        display: ["var(--font-manrope)", "system-ui", "-apple-system", "sans-serif"],
+      },
+      boxShadow: {
+        "glow-cyan": "0 0 40px -10px rgba(0, 238, 220, 0.35)",
+        "glow-cyan-intense": "0 0 60px -5px rgba(0, 238, 220, 0.5)",
+        "glow-purple": "0 0 40px -10px rgba(125, 21, 137, 0.35)",
+        "glow-green": "0 0 40px -10px rgba(16, 185, 129, 0.35)",
+      },
+      backgroundImage: {
+        "kendits-gradient": "linear-gradient(135deg, #00EEDC 0%, #38BDF8 50%, #A855F7 100%)",
+        "kendits-gradient-subtle": "linear-gradient(135deg, rgba(0, 238, 220, 0.15) 0%, rgba(56, 189, 248, 0.15) 50%, rgba(168, 85, 247, 0.15) 100%)",
+        "kendits-radial-cyan": "radial-gradient(circle, rgba(0, 238, 220, 0.15) 0%, transparent 70%)",
+        "kendits-radial-purple": "radial-gradient(circle, rgba(125, 21, 137, 0.15) 0%, transparent 70%)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -164,28 +213,6 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    function ({ matchUtilities, theme }: any) {
-      matchUtilities(
-        {
-          "bg-grid": (value: any) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-            )}")`,
-          }),
-          "bg-grid-small": (value: any) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-            )}")`,
-          }),
-          "bg-dot": (value: any) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
-            )}")`,
-          }),
-        },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
-    },
   ],
 } satisfies Config;
 

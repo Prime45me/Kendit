@@ -1,29 +1,45 @@
-import Clients from "@/components/Clients";
-import Hero from "@/components/Hero"
-import Experience from "@/components/Experience"
-import RecentProjects from "@/components/RecentProjects";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import Grid from "@/components/ui/Grid";
-import { navItems } from "@/data";
-import Footer from "@/components/Footer";
-import Services from "@/components/Services";
-import { FaHome } from "react-icons/fa";
+import type { Metadata } from "next";
+import { PageShell } from "@/components/v2/PageShell";
+import { SignatureHero } from "@/components/v2/hero/SignatureHero";
+import { StudioStatement } from "@/components/v2/home/StudioStatement";
+import { TheGoodStuff } from "@/components/v2/sections/TheGoodStuff";
+import { ClientsProof } from "@/components/v2/home/ClientsProof";
+import { ServicesTeaser } from "@/components/v2/home/ServicesTeaser";
+import { StudioTeaser } from "@/components/v2/home/StudioTeaser";
+import { HomeCTA } from "@/components/v2/home/HomeCTA";
+
+export const metadata: Metadata = {
+  title: "Kendits Creative Studios | Cinematic Visual Production & Direction",
+  description:
+    "A cinematic creative studio directing commercial films, live performances, music videos, and visual identities that define brand presence.",
+};
 
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl">
-        <FloatingNav
-         navItems={navItems}
-        />
-        <Hero/>
-        <Grid/>
-        <Services/>
-        <RecentProjects/>
-        <Clients/>
-        <Experience/>
-        <Footer/>
-       </div>
-    </main>
+    <PageShell atmosphereVariant="subtle" noPaddingTop>
+      {/* 1. Signature Homepage Hero: KENDITS Mask -> Continuous Video Reveal -> Fullscreen Immersion */}
+      <SignatureHero
+        videoSrc="/trialvideo.mp4"
+        posterSrc="/cinematic_lens.png"
+      />
+
+      {/* 2. Studio Statement & Manifesto: Defining Presence & Perception */}
+      <StudioStatement />
+
+      {/* 3. Selected Work Preview: The Good Stuff (4 Phase 4 Productions) */}
+      <TheGoodStuff />
+
+      {/* 4. Proof & Credibility: Restrained Verified Client Collaborations */}
+      <ClientsProof />
+
+      {/* 5. Capabilities Teaser: What We Create -> /services */}
+      <ServicesTeaser />
+
+      {/* 6. The Studio Teaser: Who We Are & Craft Philosophy -> /studio */}
+      <StudioTeaser />
+
+      {/* 7. Closing Invitation: Let's Create -> /contact */}
+      <HomeCTA />
+    </PageShell>
   );
 }

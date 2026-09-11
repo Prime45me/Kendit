@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kenditscreativestudios.com"),
@@ -40,7 +44,7 @@ export default function RootLayout({
       <head>
         <meta name="msvalidate.01" content="F6481774232D2AE0801E0E05F11C9C03" />
       </head>
-      <body className={inter.className}>
+      <body className={`${manrope.variable} ${manrope.className} font-sans bg-canvas text-text-primary min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

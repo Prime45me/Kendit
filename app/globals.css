@@ -71,15 +71,109 @@
     @apply border-border !scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-canvas text-text-primary antialiased selection:bg-kendits-turquoise selection:text-black;
   }
-  button {
-    @apply active:outline-none;
+  /* Accessible focus defaults */
+  :focus-visible {
+    @apply outline-none ring-2 ring-kendits-turquoise ring-offset-2 ring-offset-canvas;
+  }
+  button:focus-visible, a:focus-visible {
+    @apply ring-2 ring-kendits-turquoise ring-offset-2 ring-offset-canvas;
   }
 }
 
 @layer utilities {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
+  }
+
+  /* Manrope's 800 weight gives display type presence without synthetic 900 weight. */
+  .font-black {
+    font-weight: 800;
+  }
+
+  /* Kendits V2 Luminous Gradient Text (Cyan -> Sky -> Purple) */
+  .text-gradient-kendits {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(105deg, #00EEDC 0%, #38BDF8 50%, #A855F7 100%);
+  }
+
+  /* Kendits V2 Subtle Accent Glow */
+  .glow-border {
+    @apply border border-white/10 hover:border-kendits-cyan/40 hover:shadow-glow-cyan transition-all duration-300;
+  }
+
+  /* Kendits V2 Light Source Blooms — light living inside darkness */
+  .light-bloom-cyan {
+    background: radial-gradient(circle, rgba(0, 238, 220, 0.26) 0%, rgba(14, 66, 74, 0.12) 45%, transparent 70%);
+  }
+
+  .light-bloom-purple {
+    background: radial-gradient(circle, rgba(125, 21, 137, 0.22) 0%, rgba(58, 16, 84, 0.10) 45%, transparent 70%);
+  }
+
+  .light-bloom-mixed {
+    background: radial-gradient(ellipse, rgba(0, 238, 220, 0.20) 0%, rgba(125, 21, 137, 0.14) 50%, transparent 75%);
+  }
+
+  /* Display Typography Primitive */
+  .font-display-hero {
+    font-size: clamp(3.5rem, 12vw, 12rem);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  /* Editorial Eyebrow Tag */
+  .eyebrow-tag {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-kendits-cyan;
+  }
+
+  /* Cinematic horizon divider — gradient line */
+  .horizon-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent;
+  }
+
+  /* Card glow hover surface */
+  .card-luminous {
+    @apply border border-white/[0.07] bg-white/[0.015] rounded-xl transition-all duration-500;
+    @apply hover:border-kendits-cyan/35 hover:bg-white/[0.035];
+  }
+  .card-luminous:hover {
+    box-shadow: 0 0 40px rgba(0, 238, 220, 0.08), 0 0 80px rgba(0, 238, 220, 0.03);
+  }
+
+  /* Frosted glass surface */
+  .glass-surface {
+    @apply backdrop-blur-xl border border-white/10 bg-white/[0.04];
+  }
+
+  /* Section spacing scale */
+  .section-py {
+    @apply py-24 sm:py-32 md:py-44;
+  }
+}
+
+/* Cinematic scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 238, 220, 0.22);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 238, 220, 0.45);
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
