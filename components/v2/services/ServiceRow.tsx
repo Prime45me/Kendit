@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { KenditsService } from "@/data/services";
 import { cn } from "@/lib/utils";
+import { DigitalExperienceVisual } from "./DigitalExperienceVisual";
 
 interface ServiceRowProps {
   service: KenditsService;
@@ -86,7 +87,9 @@ export const ServiceRow: React.FC<ServiceRowProps> = ({ service, isOpen, onToggl
               
               {/* Media Section (Mounted only when open due to AnimatePresence conditional rendering) */}
               <div className="w-full md:w-1/2 aspect-video bg-[#0a0a0a] overflow-hidden">
-                {service.media.type === "video" ? (
+                {service.media.type === "3d" ? (
+                  <DigitalExperienceVisual />
+                ) : service.media.type === "video" ? (
                   <video
                     ref={videoRef}
                     src={service.media.src}
@@ -128,6 +131,8 @@ export const ServiceRow: React.FC<ServiceRowProps> = ({ service, isOpen, onToggl
                   <div>
                     <Link
                       href={service.workHref}
+                      target={service.workHref.startsWith("http") ? "_blank" : undefined}
+                      rel={service.workHref.startsWith("http") ? "noreferrer" : undefined}
                       className="group/cta inline-flex items-center gap-3 text-sm font-mono tracking-[0.15em] uppercase text-kendits-turquoise hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-kendits-turquoise rounded-sm"
                     >
                       {service.workLabel}

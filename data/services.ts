@@ -5,7 +5,7 @@ export type KenditsService = {
   capabilities: string[];
   media: {
     src: string;
-    type: "image" | "video";
+    type: "image" | "video" | "3d";
     alt?: string;
   };
   workHref?: string;
@@ -95,11 +95,11 @@ export const services: KenditsService[] = [
       "Digital Platforms",
     ],
     media: {
-      src: "/exp2.svg",
-      type: "image",
-      alt: "Digital Experiences — Interface and Media Design",
+      src: "",
+      type: "3d",
+      alt: "Digital Experiences — Interactive brand and web interface",
     },
-    workHref: "/work",
+    workHref: "https://www.penieleducationalcomplexkiddycarecentre.com/",
     workLabel: "See selected work →",
   },
 ];
