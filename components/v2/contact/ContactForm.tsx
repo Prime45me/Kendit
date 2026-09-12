@@ -246,10 +246,10 @@ export const ContactForm: React.FC = () => {
                 We were unable to deliver your enquiry automatically. You can retry below or email
                 us directly at{" "}
                 <a
-                  href="mailto:opokuacheampongkenneth360@gmail.com"
+                  href="mailto:kenditscreativestudios@gmail.com"
                   className="font-medium underline underline-offset-2 hover:text-white"
                 >
-                  opokuacheampongkenneth360@gmail.com
+                  kenditscreativestudios@gmail.com
                 </a>
                 .
               </p>

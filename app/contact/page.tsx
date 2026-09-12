@@ -9,7 +9,7 @@ import { GlobalReachGlobe } from "@/components/v2/contact/GlobalReachGlobe";
 export const metadata: Metadata = {
   title: "Contact | Kendits Creative Studios",
   description:
-    "Initiate collaboration with Kendits Creative Studios. High-end media production, brand direction, and cinematic visual storytelling based in Accra, Ghana and working worldwide.",
+    "Initiate collaboration with Kendits Creative Studios. High-end media production, brand direction, and cinematic visual storytelling based in Accra and Koforidua, Ghana and working worldwide.",
   openGraph: {
     title: "Contact | Kendits Creative Studios",
     description:

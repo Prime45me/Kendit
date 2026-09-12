@@ -58,7 +58,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ className }) => 
                 <span className="text-gradient-kendits">Create.</span>
               </h2>
               <p className="text-base sm:text-lg font-light text-white/60 leading-relaxed max-w-md mb-10">
-                From high-end film production to cohesive brand identity systems, we bring a cinematic
+                From short cinematic films to cohesive brand identity systems, we bring a cinematic
                 standard of craft to every visual discipline.
               </p>
 

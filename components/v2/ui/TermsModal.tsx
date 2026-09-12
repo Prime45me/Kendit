@@ -143,7 +143,7 @@ const TermsModal = ({ isOpen, onClose }: TermsModalProps) => {
                     <div className="text-sm space-y-2 text-white-100">
                       <p className="font-medium text-white">Kendits Creative Studio</p>
                       <p className="flex items-center gap-2">
-                        <span className="text-purple">Email:</span> opokuacheampongkenneth360@gmail.com
+                        <span className="text-purple">Email:</span> kenditscreativestudios@gmail.com
                       </p>
                       <p className="flex items-center gap-2">
                         <span className="text-purple">Phone:</span> +233 (0) 24 660 1022

@@ -53,7 +53,7 @@ export const ContactHero: React.FC = () => {
           >
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Studio: Accra, Ghana (GMT)</span>
+              <span>Studio: Accra &amp; Koforidua, Ghana (GMT)</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">
               <span>Response Time: &lt; 24–48 Hours</span>

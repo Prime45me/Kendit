@@ -63,7 +63,7 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
                   expression.
                 </p>
                 <p className="text-white/50 text-sm sm:text-base">
-                  Based in Accra, Ghana and directing for projects worldwide, we partner with
+                  Based in Accra and Koforidua, Ghana and directing for projects worldwide, we partner with
                   institutions, artists, and modern brands that value cinematic distinction.
                 </p>
               </div>
@@ -102,7 +102,7 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
               <div className="absolute inset-0 bg-gradient-to-br from-kendits-cyan/[0.06] via-transparent to-kendits-purple/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-white/60 group-hover:text-white/90 transition-colors duration-500">
                 <span>Studio Archive</span>
-                <span>Accra // Worldwide</span>
+                <span>Accra + Koforidua // Worldwide</span>
               </div>
             </motion.div>
           </div>

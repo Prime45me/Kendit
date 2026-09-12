@@ -26,6 +26,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
   const maskGroupRef = useRef<SVGGElement>(null);
   const darkOverlayRef = useRef<SVGRectElement>(null);
   const headerContentRef = useRef<HTMLDivElement>(null);
+  const scrollCueRef = useRef<HTMLDivElement>(null);
   const payoffContentRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -128,11 +129,23 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
         0
       );
 
+      // Keep the opening scroll instruction visible long enough to guide mobile visitors.
+      tl.to(
+        scrollCueRef.current,
+        {
+          opacity: 0,
+          y: -12,
+          duration: 0.16,
+          ease: "power2.out",
+        },
+        0.28
+      );
+
       // 2. Expand Mask: Scale up the KENDITS text cutout exponentially to reveal video
       tl.to(
         maskGroupRef.current,
         {
-          scale: isMobile ? 42 : 36,
+          scale: isMobile ? 32 : 28,
           transformOrigin: `${cx}px ${cy}px`,
           duration: 1,
           ease: "power2.inOut",
@@ -145,10 +158,10 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
         darkOverlayRef.current,
         {
           opacity: 0,
-          duration: 0.35,
+          duration: 0.28,
           ease: "power1.inOut",
         },
-        0.55
+        0.34
       );
 
       // 4. Payoff Reveal: Fade in cinematic showreel payoff overlay as video becomes 100% fullscreen
@@ -367,20 +380,27 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
               </button>
             </div>
 
-            {/* Center Scroll Prompt */}
-            <div className="flex flex-col items-center gap-2.5">
-              <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-white/45">
-                Scroll to Reveal
-              </span>
-              <div className="w-[1px] h-6 bg-gradient-to-b from-kendits-turquoise via-kendits-turquoise/40 to-transparent animate-pulse" />
-            </div>
-
             {/* Right Meta Marker */}
             <div className="hidden sm:block text-right">
               <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/30">
                 Showreel 2026 // 24FPS
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Independent scroll cue remains visible while the intro framing fades. */}
+        <div
+          ref={scrollCueRef}
+          className="absolute bottom-5 sm:bottom-9 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-2.5 pointer-events-none"
+        >
+          <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-white/55 whitespace-nowrap">
+            <span className="sm:hidden">Scroll Down</span>
+            <span className="hidden sm:inline">Scroll to Reveal</span>
+          </span>
+          <div className="flex flex-col items-center gap-1 animate-bounce" aria-hidden="true">
+            <div className="w-[1px] h-5 bg-gradient-to-b from-kendits-turquoise via-kendits-turquoise/60 to-transparent" />
+            <span className="block w-2 h-2 border-r border-b border-kendits-turquoise rotate-45 -translate-y-1" />
           </div>
         </div>
 

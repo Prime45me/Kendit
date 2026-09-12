@@ -62,14 +62,14 @@ export const Footer: React.FC = () => {
                   <span aria-hidden="true" className="ml-auto text-white/30 transition-transform group-hover/contact:translate-x-1">↗</span>
                 </a>
                 <a
-                  href="mailto:opokuacheampongkenneth360@gmail.com"
+                  href="mailto:kenditscreativestudios@gmail.com"
                   className="group/contact flex items-center gap-3 text-xs text-text-secondary transition-colors hover:text-kendits-turquoise"
                 >
                   <svg className="h-4 w-4 shrink-0 text-kendits-turquoise" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                     <rect x="3" y="5" width="18" height="14" rx="2" />
                     <path d="m3 7 9 6 9-6" />
                   </svg>
-                  <span className="break-all">opokuacheampongkenneth360@gmail.com</span>
+                  <span className="break-all">kenditscreativestudios@gmail.com</span>
                   <span aria-hidden="true" className="ml-auto shrink-0 text-white/30 transition-transform group-hover/contact:translate-x-1">↗</span>
                 </a>
               </div>
@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-secondary">
               Creative studio for film, visual direction, branding and visual storytelling.
             </p>
-            <p className="mt-5 text-xs font-mono uppercase tracking-[0.2em] text-white/40">Accra, Ghana</p>
+            <p className="mt-5 text-xs font-mono uppercase tracking-[0.2em] text-white/40">Accra &amp; Koforidua, Ghana</p>
           </div>
 
           <div className="lg:col-span-3">

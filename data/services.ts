@@ -15,11 +15,12 @@ export type KenditsService = {
 export const services: KenditsService[] = [
   {
     index: "01",
-    title: "Film & Visual Production",
-    outcome: "Cinematic visual storytelling that defines brand presence.",
+    title: "Event Coverage & Film Production",
+    outcome: "Cinematic coverage and film production for events that deserve to be remembered.",
     capabilities: [
       "Creative Direction",
-      "Production",
+      "Event Coverage",
+      "Film Production",
       "Cinematography",
       "Editing",
       "Color Grading",
@@ -37,6 +38,7 @@ export const services: KenditsService[] = [
     outcome: "Cohesive brand identities built for modern platforms.",
     capabilities: [
       "Brand Identity",
+      "Graphic Design",
       "Campaign Concepting",
       "Visual Strategy",
       "Art Direction",
@@ -51,10 +53,10 @@ export const services: KenditsService[] = [
   },
   {
     index: "03",
-    title: "Content & Social",
-    outcome: "Emotion-led wedding content that preserves every meaningful moment for the couple and their loved ones.",
+    title: "Event Content & Social",
+    outcome: "Emotion-led content that captures the energy and meaningful moments of every event.",
     capabilities: [
-      "Wedding Coverage",
+      "Event Coverage",
       "Candid Storytelling",
       "Short-form Content",
       "Social Media Edits",

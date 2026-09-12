@@ -110,7 +110,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             </NextLink>
 
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-text-muted">
-              <p>Accra, Ghana • Worldwide Production</p>
+              <p>Accra &amp; Koforidua, Ghana • Worldwide Production</p>
               <div className="flex gap-4">
                 <a
                   href="https://www.instagram.com/kendits_studio"

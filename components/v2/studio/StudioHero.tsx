@@ -52,7 +52,7 @@ export const StudioHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero Visual */}
+        {/* Hero Visual temporarily hidden while the studio image is being refreshed.
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -64,9 +64,9 @@ export const StudioHero: React.FC = () => {
             alt="Kendits Studio Atmosphere"
             className="w-full h-full object-cover opacity-85"
           />
-          {/* Subtle overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-canvas/90 via-transparent to-transparent opacity-60" />
         </motion.div>
+        */}
       </Container>
     </section>
   );

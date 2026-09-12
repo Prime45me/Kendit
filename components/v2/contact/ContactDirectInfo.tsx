@@ -23,10 +23,10 @@ export const ContactDirectInfo: React.FC = () => {
               Electronic Mail
             </p>
             <a
-              href="mailto:opokuacheampongkenneth360@gmail.com"
+              href="mailto:kenditscreativestudios@gmail.com"
               className="text-base sm:text-lg font-medium text-text-primary hover:text-kendits-turquoise transition-colors break-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-kendits-turquoise rounded"
             >
-              opokuacheampongkenneth360@gmail.com
+              kenditscreativestudios@gmail.com
             </a>
           </div>
 
@@ -57,7 +57,7 @@ export const ContactDirectInfo: React.FC = () => {
               Studio Operations
             </p>
             <p className="text-base text-text-primary font-medium">
-              Accra, Ghana
+              Accra &amp; Koforidua, Ghana
             </p>
             <p className="text-xs text-text-secondary mt-0.5">
               Available for travel & worldwide remote productions.

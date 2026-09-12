@@ -72,15 +72,15 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ className }) => {
 
           {/* Minimal Direct Note */}
           <div className="mt-14 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center gap-6 sm:gap-12 text-xs font-mono uppercase tracking-widest text-white/40">
-            <span>Accra, Ghana</span>
+            <span>Accra &amp; Koforidua, Ghana</span>
             <span className="hidden sm:inline" aria-hidden="true">•</span>
             <span>Directing Worldwide</span>
             <span className="hidden sm:inline" aria-hidden="true">•</span>
             <a
-              href="mailto:kenditsstudios@gmail.com"
+              href="mailto:kenditscreativestudios@gmail.com"
               className="text-white/60 hover:text-kendits-turquoise transition-colors"
             >
-              kenditsstudios@gmail.com
+              kenditscreativestudios@gmail.com
             </a>
           </div>
         </motion.div>
