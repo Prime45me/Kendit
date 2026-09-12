@@ -21,6 +21,11 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
   posterSrc = "/cinematic_lens.png",
   className,
 }) => {
+  const isIOS =
+    typeof window !== "undefined" &&
+    (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+
   const containerRef = useRef<HTMLDivElement>(null);
   const pinTargetRef = useRef<HTMLDivElement>(null);
   const maskGroupRef = useRef<SVGGElement>(null);
@@ -41,18 +46,34 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
 
   // Track viewport dimensions for 1:1 responsive SVG mask coordinates (prevents mobile letter clipping)
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => {
-        setDimensions({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      };
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => {
+      setDimensions((previous) => {
+        const width = window.innerWidth;
+        const height = isIOS && width === previous.width ? previous.height : window.innerHeight;
+
+        if (previous.width === width && previous.height === height) {
+          return previous;
+        }
+
+        return { width, height };
+      });
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isIOS]);
+
+  // Prevent transient iOS browser-chrome changes from invalidating the pinned hero.
+  useEffect(() => {
+    if (typeof window === "undefined" || !isIOS) return;
+
+    ScrollTrigger.config({
+      ignoreMobileResize: true,
+    });
+  }, [isIOS]);
 
   // Check user preference for reduced motion
   useEffect(() => {
@@ -145,7 +166,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
       tl.to(
         maskGroupRef.current,
         {
-          scale: isMobile ? 32 : 28,
+          scale: isIOS ? 24 : isMobile ? 32 : 28,
           transformOrigin: `${cx}px ${cy}px`,
           duration: 1,
           ease: "power2.inOut",
@@ -186,18 +207,6 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     };
   }, [isReducedMotion, dimensions.width, cx, cy, isMobile]);
 
-  // Mobile browser chrome changes the viewport height while scrolling. Refresh the
-  // existing pin in place instead of rebuilding it and leaving stale pin styles.
-  useEffect(() => {
-    if (typeof window === "undefined" || isReducedMotion || dimensions.width === 0) return;
-
-    const frame = window.requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, [isReducedMotion, dimensions.height, dimensions.width]);
-
   return (
     <section
       ref={containerRef}
@@ -207,7 +216,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
       {/* Pinned Viewport Container */}
       <div
         ref={pinTargetRef}
-        className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-canvas"
+        className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden flex items-center justify-center bg-canvas"
       >
         {/* Layer 1: The Continuous Video Element (Playing from moment zero) */}
         <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden z-0">
