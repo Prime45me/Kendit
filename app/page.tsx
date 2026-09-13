@@ -20,7 +20,7 @@ export default function Home() {
       {/* 1. Signature Homepage Hero: KENDITS Mask -> Continuous Video Reveal -> Fullscreen Immersion */}
       <SignatureHero
         videoSrc="/trialvideo.mp4"
-        posterSrc="/cinematic_lens.png"
+        posterSrc="/webp/cinematic_lens.webp"
       />
 
       {/* 2. Studio Statement & Manifesto: Defining Presence & Perception */}

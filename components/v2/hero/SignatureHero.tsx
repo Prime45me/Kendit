@@ -12,13 +12,15 @@ if (typeof window !== "undefined") {
 
 export interface SignatureHeroProps {
   videoSrc?: string;
+  mobileVideoSrc?: string;
   posterSrc?: string;
   className?: string;
 }
 
 export const SignatureHero: React.FC<SignatureHeroProps> = ({
   videoSrc = "/trialvideo.mp4",
-  posterSrc = "/cinematic_lens.png",
+  mobileVideoSrc = "/lets%20see-converted.mp4",
+  posterSrc = "/webp/cinematic_lens.webp",
   className,
 }) => {
   const isIOS =
@@ -166,7 +168,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
       tl.to(
         maskGroupRef.current,
         {
-          scale: isIOS ? 24 : isMobile ? 32 : 28,
+          scale: isIOS ? 16 : isMobile ? 20 : 22,
           transformOrigin: `${cx}px ${cy}px`,
           duration: 1,
           ease: "power2.inOut",
@@ -235,12 +237,11 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
               />
               <video
                 ref={videoRef}
-                src={videoSrc}
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
                 onCanPlay={() => setIsVideoLoaded(true)}
                 onError={() => setHasVideoError(true)}
                 className={cn(
@@ -248,7 +249,10 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
                   isVideoLoaded ? "opacity-100" : "opacity-0"
                 )}
                 aria-label="Kendits Creative Studios official showreel footage"
-              />
+              >
+                <source src={mobileVideoSrc} media="(max-width: 767px)" />
+                <source src={videoSrc} />
+              </video>
             </>
           ) : (
             /* Poster fallback if video fails to load */
@@ -268,14 +272,14 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
           {/* Atmospheric Ambient Light Blooms living inside darkness */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-32 -left-32 w-[45vw] h-[45vw] rounded-full blur-[160px] opacity-40"
+            className="pointer-events-none absolute -top-32 -left-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-40"
             style={{
               background: "radial-gradient(circle, rgba(0, 238, 220, 0.22) 0%, rgba(14, 66, 74, 0.08) 50%, transparent 70%)",
             }}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[170px] opacity-35"
+            className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-35"
             style={{
               background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.06) 50%, transparent 70%)",
             }}

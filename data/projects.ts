@@ -113,7 +113,7 @@ export const portfolioProjects: KenditsProject[] = [
     category: "EVENT RECAP",
     year: 2025,
     thumbnail: "/peniel-thumbnails/IMG_4837_00-00-000.png",
-    preview: "/peniel-french-week.MOV",
+    preview: null,
     externalLink:
       "https://www.instagram.com/reel/DRaMXKhDYmd/?igsh=eTc1MXBlMnA3d2o3",
     shortDescription:

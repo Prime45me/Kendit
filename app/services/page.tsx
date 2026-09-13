@@ -5,7 +5,7 @@ import { Container } from "@/components/v2/ui/Container";
 import { ServicesList } from "@/components/v2/services/ServicesList";
 
 export const metadata: Metadata = {
-  title: "Services | Kendits Creative Studios",
+  title: "Services",
   description:
     "What we create. Cinematic visual storytelling, brand identities, and dynamic post-production.",
 };

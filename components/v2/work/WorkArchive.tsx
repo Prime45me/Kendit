@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { portfolioProjects } from "@/data/projects";
 import { WorkCard } from "./WorkCard";
-import { ClientsMarquee } from "./ClientsMarquee";
 import { VisualStoriesGallery } from "./VisualStoriesGallery";
 import { WorkClosingCTA } from "./WorkClosingCTA";
 
@@ -110,9 +109,6 @@ export const WorkArchive: React.FC = () => {
           </section>
         )}
       </div>
-
-      {/* ── CLIENTS WE'VE WORKED WITH ── */}
-      <ClientsMarquee />
 
       {/* ── CONTENT / VISUAL STORIES ── */}
       <VisualStoriesGallery />

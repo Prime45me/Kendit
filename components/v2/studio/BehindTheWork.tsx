@@ -73,7 +73,7 @@ export const BehindTheWork: React.FC = () => {
             className="md:col-span-4 aspect-square md:aspect-auto bg-white/5 overflow-hidden"
           >
             <img
-              src="/cinematic_lens.png"
+              src="/webp/cinematic_lens.webp"
               alt="Camera Gear"
               className="w-full h-full object-cover grayscale opacity-40 mix-blend-screen hover:grayscale-0 hover:opacity-80 transition-all duration-700"
             />

@@ -9,7 +9,7 @@ import { BehindTheWork } from "@/components/v2/studio/BehindTheWork";
 import { StudioCTA } from "@/components/v2/studio/StudioCTA";
 
 export const metadata: Metadata = {
-  title: "Studio | Kendits Creative Studios",
+  title: "Studio",
   description:
     "Who we are. A premium media production and visual direction studio building cinematic narratives that define presence and shape emotion.",
 };

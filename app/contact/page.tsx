@@ -7,7 +7,7 @@ import { ContactDirectInfo } from "@/components/v2/contact/ContactDirectInfo";
 import { GlobalReachGlobe } from "@/components/v2/contact/GlobalReachGlobe";
 
 export const metadata: Metadata = {
-  title: "Contact | Kendits Creative Studios",
+  title: "Contact",
   description:
     "Initiate collaboration with Kendits Creative Studios. High-end media production, brand direction, and cinematic visual storytelling based in Accra and Koforidua, Ghana and working worldwide.",
   openGraph: {
