@@ -25,7 +25,7 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ className }) => {
       {/* Dual Centered Ambient Light Blooms (Cyan + Purple) — strongest on homepage */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[45vw] rounded-full blur-[170px] opacity-40"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[45vw] rounded-full blur-[40px] sm:blur-[170px] opacity-40"
         style={{
           background: "radial-gradient(ellipse, rgba(0, 238, 220, 0.22) 0%, rgba(125, 21, 137, 0.18) 45%, transparent 75%)",
         }}

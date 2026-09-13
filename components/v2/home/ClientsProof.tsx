@@ -78,7 +78,7 @@ export const ClientsProof: React.FC<ClientsProofProps> = ({ className }) => {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[30vw] w-[70vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[180px] opacity-35"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[30vw] w-[70vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[40px] sm:blur-[180px] opacity-35"
         style={{
           background:
             "radial-gradient(ellipse, rgba(0, 238, 220, 0.16) 0%, rgba(125, 21, 137, 0.12) 50%, transparent 75%)",

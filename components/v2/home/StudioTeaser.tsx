@@ -26,7 +26,7 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
       {/* Cyan bloom — narrative column anchor */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -left-16 w-[55vw] h-[35vw] rounded-full blur-[160px] opacity-45"
+        className="pointer-events-none absolute -top-20 -left-16 w-[55vw] h-[35vw] rounded-full blur-[40px] sm:blur-[160px] opacity-45"
         style={{
           background: "radial-gradient(circle, rgba(0, 238, 220, 0.20) 0%, rgba(14, 66, 74, 0.08) 45%, transparent 70%)",
         }}
@@ -34,7 +34,7 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
       {/* Purple bloom — visual column anchor */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-16 -right-16 w-[60vw] h-[40vw] rounded-full blur-[180px] opacity-40"
+        className="pointer-events-none absolute -bottom-16 -right-16 w-[60vw] h-[40vw] rounded-full blur-[40px] sm:blur-[180px] opacity-40"
         style={{
           background: "radial-gradient(circle, rgba(125, 21, 137, 0.22) 0%, rgba(58, 16, 84, 0.09) 45%, transparent 70%)",
         }}

@@ -46,7 +46,7 @@ export const TheGoodStuff: React.FC<TheGoodStuffProps> = ({ className }) => {
       {/* Cyan bloom — top right, illuminates featured project card */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-32 -right-20 w-[55vw] h-[30vw] rounded-full blur-[180px] opacity-35 z-0"
+        className="pointer-events-none absolute top-32 -right-20 w-[55vw] h-[30vw] rounded-full blur-[40px] sm:blur-[180px] opacity-30 sm:opacity-35 z-0"
         style={{
           background: "radial-gradient(circle, rgba(0, 238, 220, 0.16) 0%, rgba(14, 66, 74, 0.06) 45%, transparent 70%)",
         }}
@@ -54,7 +54,7 @@ export const TheGoodStuff: React.FC<TheGoodStuffProps> = ({ className }) => {
       {/* Purple bloom — mid section, illuminates secondary cards */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-1/3 -left-16 w-[50vw] h-[28vw] rounded-full blur-[170px] opacity-30 z-0"
+        className="pointer-events-none absolute bottom-1/3 -left-16 w-[50vw] h-[28vw] rounded-full blur-[40px] sm:blur-[170px] opacity-25 sm:opacity-30 z-0"
         style={{
           background: "radial-gradient(circle, rgba(125, 21, 137, 0.16) 0%, rgba(58, 16, 84, 0.06) 45%, transparent 70%)",
         }}

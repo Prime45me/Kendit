@@ -24,7 +24,7 @@ export const StudioStatement: React.FC<StudioStatementProps> = ({ className }) =
       {/* Cyan bloom — top left, strong anchor */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -left-16 w-[70vw] h-[40vw] rounded-full blur-[160px] opacity-50"
+        className="pointer-events-none absolute -top-32 -left-16 w-[70vw] h-[40vw] rounded-full blur-[40px] sm:blur-[160px] opacity-40 sm:opacity-50"
         style={{
           background: "radial-gradient(circle, rgba(0, 238, 220, 0.22) 0%, rgba(14, 66, 74, 0.10) 45%, transparent 70%)",
         }}
@@ -32,7 +32,7 @@ export const StudioStatement: React.FC<StudioStatementProps> = ({ className }) =
       {/* Purple bloom — bottom right, counterweight */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 -right-16 w-[60vw] h-[35vw] rounded-full blur-[180px] opacity-45"
+        className="pointer-events-none absolute -bottom-32 -right-16 w-[60vw] h-[35vw] rounded-full blur-[40px] sm:blur-[180px] opacity-35 sm:opacity-45"
         style={{
           background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.08) 45%, transparent 70%)",
         }}
@@ -40,7 +40,7 @@ export const StudioStatement: React.FC<StudioStatementProps> = ({ className }) =
       {/* Warm amber accent — center, very subtle depth layer */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[20vw] rounded-full blur-[200px] opacity-20"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[20vw] rounded-full blur-[40px] sm:blur-[200px] opacity-20"
         style={{
           background: "radial-gradient(circle, rgba(251, 146, 60, 0.18) 0%, transparent 70%)",
         }}

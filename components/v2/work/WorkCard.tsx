@@ -29,10 +29,12 @@ export const WorkCard: React.FC<WorkCardProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const catColor = categoryColor[project.category] ?? "text-white/60";
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    setShouldLoadVideo(true);
     if (videoRef.current && project.preview) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
@@ -93,7 +95,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({
           ) : (
             <video
               ref={videoRef}
-              src={project.preview}
+              src={shouldLoadVideo ? project.preview : undefined}
               muted
               playsInline
               loop

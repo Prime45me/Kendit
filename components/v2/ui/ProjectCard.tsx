@@ -30,11 +30,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   const catColor = categoryColor[project.category] ?? "text-white/60";
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    setShouldLoadVideo(true);
     if (videoRef.current && project.preview) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
@@ -79,7 +81,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           loading="lazy"
         />
 
-        {/* Video or Image preview — only loaded if preview exists */}
+        {/* Video or Image preview — only loaded on demand (prevents iOS WebKit crash) */}
         {project.preview && (
           project.preview.match(/\.(webp|gif)$/i) ? (
             <img
@@ -95,7 +97,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ) : (
             <video
               ref={videoRef}
-              src={project.preview}
+              src={shouldLoadVideo ? project.preview : undefined}
               muted
               playsInline
               loop

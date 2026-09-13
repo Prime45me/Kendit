@@ -91,12 +91,30 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     }
   }, []);
 
-  // Ensure video starts playing immediately on load
+  // Ensure video starts playing immediately on load, and pause when scrolled out of view to preserve iOS WebKit memory
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.play().catch(() => {});
     }
+
+    if (typeof window === "undefined" || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && videoRef.current && !videoRef.current.paused) {
+            videoRef.current.pause();
+          } else if (entry.isIntersecting && videoRef.current && videoRef.current.paused) {
+            videoRef.current.play().catch(() => {});
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
   }, []);
 
   // Toggle user audio control
@@ -137,6 +155,17 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onLeave: () => {
+            // Free GPU video decoding pipeline on iOS when user enters subsequent sections
+            if (videoRef.current && !videoRef.current.paused) {
+              videoRef.current.pause();
+            }
+          },
+          onEnterBack: () => {
+            if (videoRef.current && videoRef.current.paused) {
+              videoRef.current.play().catch(() => {});
+            }
+          },
         },
       });
 
@@ -272,14 +301,14 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
           {/* Atmospheric Ambient Light Blooms living inside darkness */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-32 -left-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-40"
+            className="pointer-events-none absolute -top-32 -left-32 w-[45vw] h-[45vw] rounded-full blur-[40px] sm:blur-[100px] opacity-40"
             style={{
               background: "radial-gradient(circle, rgba(0, 238, 220, 0.22) 0%, rgba(14, 66, 74, 0.08) 50%, transparent 70%)",
             }}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-35"
+            className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[40px] sm:blur-[100px] opacity-35"
             style={{
               background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.06) 50%, transparent 70%)",
             }}

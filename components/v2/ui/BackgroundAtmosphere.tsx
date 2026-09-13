@@ -33,7 +33,7 @@ export const BackgroundAtmosphere: React.FC<BackgroundAtmosphereProps> = ({
         {/* 1. Primary Luminous Light Source — Teal / Cyan Bloom (Top-Right / Header) */}
         <div
           className={cn(
-            "absolute -top-32 -right-32 rounded-full blur-[100px] transition-opacity duration-1000",
+            "absolute -top-32 -right-32 rounded-full blur-[40px] sm:blur-[100px] transition-opacity duration-1000",
             isStrong
               ? "w-[60vw] h-[60vw] opacity-100"
               : "w-[45vw] h-[45vw] opacity-80"
@@ -47,7 +47,7 @@ export const BackgroundAtmosphere: React.FC<BackgroundAtmosphereProps> = ({
         {/* 2. Secondary Luminous Light Source — Purple / Magenta Bloom (Mid-Left / Spatial Depth) */}
         <div
           className={cn(
-            "absolute top-[35%] -left-36 rounded-full blur-[120px] transition-opacity duration-1000",
+            "absolute top-[35%] -left-36 rounded-full blur-[40px] sm:blur-[120px] transition-opacity duration-1000",
             isStrong
               ? "w-[55vw] h-[55vw] opacity-90"
               : "w-[40vw] h-[40vw] opacity-70"

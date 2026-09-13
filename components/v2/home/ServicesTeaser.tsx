@@ -26,7 +26,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ className }) => 
       {/* Purple bloom — dominant on the left side of this section */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -left-24 w-[55vw] h-[45vw] rounded-full blur-[160px] opacity-45"
+        className="pointer-events-none absolute -top-20 -left-24 w-[55vw] h-[45vw] rounded-full blur-[40px] sm:blur-[160px] opacity-45"
         style={{
           background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.08) 45%, transparent 70%)",
         }}
@@ -34,7 +34,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ className }) => 
       {/* Cyan bloom — lower right, cards glow source */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 -right-12 w-[50vw] h-[40vw] rounded-full blur-[170px] opacity-40"
+        className="pointer-events-none absolute bottom-0 -right-12 w-[50vw] h-[40vw] rounded-full blur-[40px] sm:blur-[170px] opacity-40"
         style={{
           background: "radial-gradient(circle, rgba(0, 238, 220, 0.18) 0%, rgba(14, 66, 74, 0.07) 45%, transparent 70%)",
         }}
