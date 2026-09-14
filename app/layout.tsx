@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#050505",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kenditscreativestudios.com"),

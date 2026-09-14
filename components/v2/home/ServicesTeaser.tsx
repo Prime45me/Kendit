@@ -21,14 +21,14 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ className }) => 
     <section
       id="capabilities"
       aria-label="What We Create"
-      className="relative py-24 sm:py-36 md:py-44 bg-canvas border-b border-white/[0.07] overflow-hidden z-10"
+      className="relative py-16 sm:py-28 md:py-40 bg-canvas border-b border-white/[0.07] overflow-hidden z-10"
     >
-      {/* Purple bloom — dominant on the left side of this section */}
+      {/* Green bloom — dominant on the left side of this section */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-20 -left-24 w-[55vw] h-[45vw] rounded-full blur-[40px] sm:blur-[160px] opacity-45"
         style={{
-          background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.08) 45%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(6, 78, 59, 0.07) 45%, transparent 70%)",
         }}
       />
       {/* Cyan bloom — lower right, cards glow source */}

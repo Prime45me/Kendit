@@ -120,8 +120,8 @@ const config = {
         "glow-green": "0 0 40px -10px rgba(16, 185, 129, 0.35)",
       },
       backgroundImage: {
-        "kendits-gradient": "linear-gradient(135deg, #00EEDC 0%, #38BDF8 50%, #A855F7 100%)",
-        "kendits-gradient-subtle": "linear-gradient(135deg, rgba(0, 238, 220, 0.15) 0%, rgba(56, 189, 248, 0.15) 50%, rgba(168, 85, 247, 0.15) 100%)",
+        "kendits-gradient": "linear-gradient(135deg, #00EEDC 0%, #22D3EE 50%, #10B981 100%)",
+        "kendits-gradient-subtle": "linear-gradient(135deg, rgba(0, 238, 220, 0.15) 0%, rgba(34, 211, 238, 0.15) 50%, rgba(16, 185, 129, 0.15) 100%)",
         "kendits-radial-cyan": "radial-gradient(circle, rgba(0, 238, 220, 0.15) 0%, transparent 70%)",
         "kendits-radial-purple": "radial-gradient(circle, rgba(125, 21, 137, 0.15) 0%, transparent 70%)",
       },

@@ -47,30 +47,50 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     width: 1920,
     height: 1080,
   });
+  const isMobile = dimensions.width < 768;
+  const activeVideoSrc = isMobile && mobileVideoSrc ? mobileVideoSrc : videoSrc;
 
-  // Track viewport dimensions for 1:1 responsive SVG mask coordinates (prevents mobile letter clipping)
+  // Track viewport dimensions with debounce and ignore mobile height jitter (address bar collapse)
   useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined") return;
 
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     const handleResize = () => {
-      setDimensions((previous) => {
-        const width = window.innerWidth;
-        const height = isIOS && width === previous.width ? previous.height : window.innerHeight;
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setDimensions((previous) => {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
 
-        if (previous.width === width && previous.height === height) {
-          return previous;
-        }
+          // On mobile, ignore small height changes caused by dynamic address bar transitions
+          const isHeightOnlyChange =
+            width === previous.width && Math.abs(height - previous.height) < 140;
 
-        return { width, height };
-      });
+          if (isHeightOnlyChange) {
+            return previous;
+          }
+
+          if (previous.width === width && previous.height === height) {
+            return previous;
+          }
+
+          return { width, height };
+        });
+      }, 120);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isIOS]);
+    // Set initial real dimensions
+    setDimensions({ width: window.innerWidth, height: window.innerHeight });
 
-  // Prevent transient iOS browser-chrome changes from invalidating the pinned hero.
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Prevent transient iOS browser-chrome changes from invalidating the pinned hero
   useEffect(() => {
     if (typeof window === "undefined" || !isIOS) return;
 
@@ -93,13 +113,48 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     }
   }, []);
 
-  // Ensure video starts playing immediately on load
+  // Ensure video starts playing immediately on load, with touch/scroll unlock for iOS Safari
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-    }
-  }, []);
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    setIsVideoLoaded(false);
+    setHasVideoError(false);
+    video.load();
+
+    const playVideo = () => {
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise
+          .then(() => setIsVideoLoaded(true))
+          .catch(() => {
+            // Autoplay blocked by mobile browser power policy
+          });
+      }
+    };
+
+    playVideo();
+
+    // Fallback: unlock playback on first user touch or scroll
+    const handleGesture = () => {
+      if (video.paused) {
+        playVideo();
+      }
+    };
+
+    window.addEventListener("touchstart", handleGesture, { once: true, passive: true });
+    window.addEventListener("scroll", handleGesture, { once: true, passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleGesture);
+      window.removeEventListener("scroll", handleGesture);
+    };
+  }, [activeVideoSrc]);
 
   // Toggle user audio control
   const toggleAudio = (e: React.MouseEvent) => {
@@ -114,12 +169,10 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     }
   };
 
-  // Compute dynamic font size so KENDITS fills roughly 84% of viewport width on desktop, 88% on mobile
-  const isMobile = dimensions.width < 768;
-  const targetWidth = dimensions.width * (isMobile ? 0.88 : 0.82);
-  // In Inter 900, "KENDITS" width is approximately 4.2 * fontSize
-  const rawFontSize = Math.round(targetWidth / 4.2);
-  const fontSize = Math.max(isMobile ? 46 : 96, Math.min(rawFontSize, 280));
+  // Compute responsive bounded font size and target width so KENDITS never overflows on any device
+  const targetWidth = Math.round(dimensions.width * (isMobile ? 0.76 : 0.82));
+  const rawFontSize = Math.round(targetWidth / (isMobile ? 4.8 : 4.3));
+  const fontSize = Math.max(isMobile ? 38 : 72, Math.min(rawFontSize, 260));
 
   const cx = dimensions.width / 2;
   const cy = dimensions.height / 2;
@@ -239,22 +292,22 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
               />
               <video
                 ref={videoRef}
+                src={activeVideoSrc}
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                preload="auto"
                 onCanPlay={() => setIsVideoLoaded(true)}
+                onLoadedData={() => setIsVideoLoaded(true)}
+                onPlaying={() => setIsVideoLoaded(true)}
                 onError={() => setHasVideoError(true)}
                 className={cn(
                   "relative w-full h-full object-cover transition-opacity duration-500",
                   isVideoLoaded ? "opacity-100" : "opacity-0"
                 )}
                 aria-label="Kendits Creative Studios official showreel footage"
-              >
-                <source src={mobileVideoSrc} media="(max-width: 767px)" />
-                <source src={videoSrc} />
-              </video>
+              />
             </>
           ) : (
             /* Poster fallback if video fails to load */
@@ -283,7 +336,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
             aria-hidden="true"
             className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-35"
             style={{
-              background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.06) 50%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(6, 78, 59, 0.06) 50%, transparent 70%)",
             }}
           />
         </div>
@@ -316,10 +369,12 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
                     textAnchor="middle"
                     dominantBaseline="central"
                     fill="black"
-                    fontFamily="var(--font-manrope), system-ui, sans-serif"
+                    fontFamily="var(--font-manrope), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
                     fontWeight="800"
                     fontSize={fontSize}
-                    letterSpacing="-0.04em"
+                    letterSpacing={isMobile ? "-0.01em" : "-0.04em"}
+                    textLength={targetWidth}
+                    lengthAdjust="spacingAndGlyphs"
                     shapeRendering="geometricPrecision"
                   >
                     KENDITS
@@ -368,7 +423,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
           </div>
 
           {/* Bottom Controls & Scroll Cue */}
-          <div className="pb-4 sm:pb-8 flex items-end justify-between">
+          <div className="pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] sm:pb-8 flex items-end justify-between">
             {/* Audio Toggle (Pointer events enabled for button) */}
             <div className="pointer-events-auto">
               <button
@@ -416,7 +471,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
         {/* Independent scroll cue remains visible while the intro framing fades. */}
         <div
           ref={scrollCueRef}
-          className="absolute bottom-5 sm:bottom-9 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-2.5 pointer-events-none"
+          className="absolute bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] sm:bottom-9 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-2.5 pointer-events-none"
         >
           <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-white/55 whitespace-nowrap">
             <span className="sm:hidden">Scroll Down</span>

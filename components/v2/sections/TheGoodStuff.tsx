@@ -32,7 +32,7 @@ export const TheGoodStuff: React.FC<TheGoodStuffProps> = ({ className }) => {
     <section
       id="projects"
       aria-label="Selected Work — The Good Stuff"
-      className={cn("relative w-full z-10", className)}
+      className={cn("relative w-full z-10 bg-canvas", className)}
     >
       {/* A thin gradient bridge so the dark hero dissolves naturally into this section */}
       <div
@@ -51,19 +51,19 @@ export const TheGoodStuff: React.FC<TheGoodStuffProps> = ({ className }) => {
           background: "radial-gradient(circle, rgba(0, 238, 220, 0.16) 0%, rgba(14, 66, 74, 0.06) 45%, transparent 70%)",
         }}
       />
-      {/* Purple bloom — mid section, illuminates secondary cards */}
+      {/* Green bloom — mid section, illuminates secondary cards */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-1/3 -left-16 w-[50vw] h-[28vw] rounded-full blur-[40px] sm:blur-[170px] opacity-25 sm:opacity-30 z-0"
         style={{
-          background: "radial-gradient(circle, rgba(125, 21, 137, 0.16) 0%, rgba(58, 16, 84, 0.06) 45%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(6, 78, 59, 0.06) 45%, transparent 70%)",
         }}
       />
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 pt-28 pb-32">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 pt-16 sm:pt-24 pb-20 sm:pb-32">
 
         {/* ── Section Header ── */}
-        <div className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-12 sm:mb-16 md:mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -20,14 +20,14 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ className }) => {
   return (
     <section
       aria-label="Studio Inquiry Invitation"
-      className="relative py-32 sm:py-44 md:py-52 bg-canvas overflow-hidden z-10"
+      className="relative py-18 sm:py-36 md:py-48 bg-canvas overflow-hidden z-10"
     >
-      {/* Dual Centered Ambient Light Blooms (Cyan + Purple) — strongest on homepage */}
+      {/* Dual Centered Ambient Light Blooms (Cyan + Green) — strongest on homepage */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[45vw] rounded-full blur-[40px] sm:blur-[170px] opacity-40"
         style={{
-          background: "radial-gradient(ellipse, rgba(0, 238, 220, 0.22) 0%, rgba(125, 21, 137, 0.18) 45%, transparent 75%)",
+          background: "radial-gradient(ellipse, rgba(0, 238, 220, 0.22) 0%, rgba(16, 185, 129, 0.16) 45%, transparent 75%)",
         }}
       />
 

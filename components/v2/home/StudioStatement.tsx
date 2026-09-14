@@ -19,7 +19,7 @@ export const StudioStatement: React.FC<StudioStatementProps> = ({ className }) =
     <section
       id="manifesto"
       aria-label="Studio Manifesto"
-      className="brand-gradient-surface brand-gradient-manifesto relative z-10 overflow-hidden py-28 sm:py-40 md:py-52"
+      className="brand-gradient-surface brand-gradient-manifesto relative z-10 overflow-hidden py-16 sm:py-28 md:py-44"
     >
       <Container width="wide" className="relative z-10">
         <div className="max-w-5xl mx-auto">

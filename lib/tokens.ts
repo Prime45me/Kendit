@@ -4,7 +4,7 @@
  * Central token definitions representing the dark cinematic visual identity:
  * - Obsidian / near-black canvas and surface levels
  * - High-contrast off-white typographic scale
- * - Signature Kendits accent palette: Green (#10B981) -> Turquoise (#06B6D4) -> Blue (#3B82F6)
+ * - Signature Kendits accent palette: Turquoise (#00EEDC) -> Cyan (#22D3EE) -> Green (#10B981)
  * - Motion, radius, spacing, container, and z-index constants
  */
 
@@ -35,11 +35,11 @@ export const tokens = {
     // Brand Accents
     accent: {
       green: "#10B981",     // Emerald green
-      turquoise: "#06B6D4", // Core signature cyan/turquoise (#00F2FE vibe)
+      turquoise: "#00EEDC", // Core signature turquoise
       blue: "#3B82F6",      // Radiant electric blue
-      gradient: "linear-gradient(135deg, #10B981 0%, #06B6D4 50%, #3B82F6 100%)",
-      gradientText: "linear-gradient(135deg, #34D399 0%, #22D3EE 50%, #60A5FA 100%)",
-      glow: "rgba(6, 182, 212, 0.25)",
+      gradient: "linear-gradient(135deg, #00EEDC 0%, #22D3EE 50%, #10B981 100%)",
+      gradientText: "linear-gradient(135deg, #00EEDC 0%, #22D3EE 50%, #10B981 100%)",
+      glow: "rgba(0, 238, 220, 0.25)",
     },
     // Functional States
     state: {

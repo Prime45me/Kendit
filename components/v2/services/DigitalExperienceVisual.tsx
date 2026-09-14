@@ -10,7 +10,7 @@ export const DigitalExperienceVisual: React.FC = () => {
       role="img"
       className="relative h-full min-h-[260px] w-full overflow-hidden bg-[#071316] [perspective:900px]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,238,220,0.2),transparent_36%),radial-gradient(circle_at_80%_80%,rgba(125,21,137,0.24),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,238,220,0.2),transparent_36%),radial-gradient(circle_at_80%_80%,rgba(16,185,129,0.2),transparent_42%)]" />
       <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:36px_36px]" />
 
       <motion.div
@@ -18,7 +18,7 @@ export const DigitalExperienceVisual: React.FC = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute left-[16%] top-[17%] h-[64%] w-[68%] [transform-style:preserve-3d]"
       >
-        <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-[18px] border border-kendits-purple/40 bg-kendits-purple/10 shadow-[0_25px_70px_rgba(125,21,137,0.25)] [transform:translateZ(-34px)]" />
+        <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-[18px] border border-kendits-green/40 bg-kendits-green/10 shadow-[0_25px_70px_rgba(16,185,129,0.22)] [transform:translateZ(-34px)]" />
         <div className="absolute inset-0 -translate-x-4 -translate-y-4 rounded-[18px] border border-kendits-turquoise/30 bg-kendits-turquoise/[0.08] [transform:translateZ(-18px)]" />
 
         <div className="relative h-full w-full rounded-[18px] border border-white/20 bg-[#0c2024]/90 p-4 shadow-[0_30px_80px_rgba(0,0,0,0.45)] [backdrop-filter:blur(12px)] [transform:translateZ(12px)]">
@@ -48,7 +48,7 @@ export const DigitalExperienceVisual: React.FC = () => {
                   key={height}
                   animate={{ height: [`${height}%`, `${Math.min(height + 18, 92)}%`, `${height}%`] }}
                   transition={{ duration: 2.5, delay: index * 0.12, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex-1 rounded-t-sm bg-kendits-purple/70"
+                  className="flex-1 rounded-t-sm bg-kendits-green/70"
                 />
               ))}
             </div>

@@ -74,7 +74,7 @@ export const ClientsProof: React.FC<ClientsProofProps> = ({ className }) => {
   return (
     <section
       aria-label="Selected client project stories"
-      className={`brand-gradient-surface brand-gradient-testimonials relative z-10 overflow-hidden py-20 sm:py-28 md:py-36 ${className ?? ""}`}
+      className={`brand-gradient-surface brand-gradient-testimonials relative z-10 overflow-hidden py-16 sm:py-24 md:py-36 ${className ?? ""}`}
     >
       <Container width="wide" className="relative z-10">
         <div className="mb-10 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">

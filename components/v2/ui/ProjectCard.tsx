@@ -64,9 +64,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* ── Media Container ── */}
       <Link
         href={`/work/${project.slug}`}
-        className="relative block w-full overflow-hidden bg-[#0a0a0a] focus:outline-none focus-visible:ring-2 focus-visible:ring-kendits-turquoise/60"
+        className={cn(
+          "relative block w-full overflow-hidden bg-[#0a0a0a] focus:outline-none focus-visible:ring-2 focus-visible:ring-kendits-turquoise/60",
+          project.featured ? "aspect-video" : "aspect-video sm:aspect-[4/3]"
+        )}
         aria-label={`View ${project.title} case study`}
-        style={{ aspectRatio: project.featured ? "16/9" : "4/3" }}
       >
         {/* Thumbnail */}
         <img

@@ -62,7 +62,7 @@ const reachArcs = [
     endLat: 35.6762,
     endLng: 139.6503,
     arcAlt: 0.5,
-    color: "#818cf8",
+    color: "#10b981",
   },
   // Accra -> Los Angeles, USA
   {
@@ -112,7 +112,7 @@ const reachArcs = [
     endLat: 25.2048,
     endLng: 55.2708,
     arcAlt: 0.32,
-    color: "#818cf8",
+    color: "#00eedc",
   },
 ];
 

@@ -19,7 +19,8 @@ export default function Home() {
     <PageShell atmosphereVariant="subtle" noPaddingTop>
       {/* 1. Signature Homepage Hero: KENDITS Mask -> Continuous Video Reveal -> Fullscreen Immersion */}
       <SignatureHero
-        videoSrc="/trialvideo.mp4"
+        videoSrc="/desktop-view.webm"
+        mobileVideoSrc="/hero-convert.webm"
         posterSrc="/webp/cinematic_lens.webp"
       />
 

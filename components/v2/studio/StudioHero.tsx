@@ -19,7 +19,7 @@ export const StudioHero: React.FC = () => {
         aria-hidden="true"
         className="pointer-events-none absolute bottom-12 -left-20 w-[50vw] h-[40vw] rounded-full blur-[170px] opacity-35"
         style={{
-          background: "radial-gradient(circle, rgba(125, 21, 137, 0.18) 0%, rgba(58, 16, 84, 0.05) 50%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, rgba(6, 78, 59, 0.05) 50%, transparent 70%)",
         }}
       />
 

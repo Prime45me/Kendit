@@ -11,7 +11,7 @@ export interface BackgroundAtmosphereProps {
  * BackgroundAtmosphere — Kendits V2 Luminous Atmosphere
  *
  * Implements the core visual rule:
- * DARK ENVIRONMENT (#050505) + LUMINOUS LIGHT SOURCES (Teal/Cyan + Purple/Magenta)
+ * DARK ENVIRONMENT (#050505) + LUMINOUS LIGHT SOURCES (Turquoise/Cyan + Green)
  *
  * Light sources live in the darkness as soft ambient blooms rather than flat colored surfaces.
  */
@@ -44,7 +44,7 @@ export const BackgroundAtmosphere: React.FC<BackgroundAtmosphereProps> = ({
           }}
         />
 
-        {/* 2. Secondary Luminous Light Source — Purple / Magenta Bloom (Mid-Left / Spatial Depth) */}
+        {/* 2. Secondary Luminous Light Source — Green Bloom (Mid-Left / Spatial Depth) */}
         <div
           className={cn(
             "absolute top-[35%] -left-36 rounded-full blur-[40px] sm:blur-[120px] transition-opacity duration-1000",
@@ -54,7 +54,7 @@ export const BackgroundAtmosphere: React.FC<BackgroundAtmosphereProps> = ({
           )}
           style={{
             background:
-              "radial-gradient(circle, rgba(125, 21, 137, 0.22) 0%, rgba(58, 16, 84, 0.09) 50%, transparent 70%)",
+              "radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(6, 78, 59, 0.08) 50%, transparent 70%)",
           }}
         />
       </div>
