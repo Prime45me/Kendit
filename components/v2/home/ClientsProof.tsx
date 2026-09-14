@@ -74,17 +74,8 @@ export const ClientsProof: React.FC<ClientsProofProps> = ({ className }) => {
   return (
     <section
       aria-label="Selected client project stories"
-      className={`relative overflow-hidden border-b border-white/[0.07] bg-canvas py-20 sm:py-28 md:py-36 ${className ?? ""}`}
+      className={`brand-gradient-surface brand-gradient-testimonials relative z-10 overflow-hidden py-20 sm:py-28 md:py-36 ${className ?? ""}`}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[30vw] w-[70vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[40px] sm:blur-[180px] opacity-35"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(0, 238, 220, 0.16) 0%, rgba(125, 21, 137, 0.12) 50%, transparent 75%)",
-        }}
-      />
-
       <Container width="wide" className="relative z-10">
         <div className="mb-10 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
           <motion.div
@@ -97,7 +88,7 @@ export const ClientsProof: React.FC<ClientsProofProps> = ({ className }) => {
               Client Testimonials
             </p>
             <h2 className="text-2xl font-black uppercase tracking-tight text-white sm:text-3xl md:text-4xl">
-              What Our Clients Say
+              What Our <span className="text-gradient-kendits">Clients Say</span>
             </h2>
           </motion.div>
 
@@ -105,11 +96,6 @@ export const ClientsProof: React.FC<ClientsProofProps> = ({ className }) => {
             Selected client perspectives
           </p>
         </div>
-
-        <div
-          className="h-px w-full bg-gradient-to-r from-kendits-cyan/30 via-white/8 to-transparent"
-          aria-hidden="true"
-        />
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <motion.div

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,8 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export interface SignatureHeroProps {
   videoSrc?: string;
   mobileVideoSrc?: string;
@@ -18,8 +20,8 @@ export interface SignatureHeroProps {
 }
 
 export const SignatureHero: React.FC<SignatureHeroProps> = ({
-  videoSrc = "/trialvideo.mp4",
-  mobileVideoSrc = "/lets%20see-converted.mp4",
+  videoSrc = "/svg-video.MOV",
+  mobileVideoSrc = "/hero-video.MOV",
   posterSrc = "/webp/cinematic_lens.webp",
   className,
 }) => {
@@ -47,7 +49,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
   });
 
   // Track viewport dimensions for 1:1 responsive SVG mask coordinates (prevents mobile letter clipping)
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined") return;
 
     const handleResize = () => {
@@ -91,30 +93,12 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
     }
   }, []);
 
-  // Ensure video starts playing immediately on load, and pause when scrolled out of view to preserve iOS WebKit memory
+  // Ensure video starts playing immediately on load
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.play().catch(() => {});
     }
-
-    if (typeof window === "undefined" || !containerRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting && videoRef.current && !videoRef.current.paused) {
-            videoRef.current.pause();
-          } else if (entry.isIntersecting && videoRef.current && videoRef.current.paused) {
-            videoRef.current.play().catch(() => {});
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-
-    observer.observe(containerRef.current);
-    return () => observer.disconnect();
   }, []);
 
   // Toggle user audio control
@@ -152,20 +136,9 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
           start: "top top",
           end: "+=220%",
           pin: true,
-          scrub: 1,
+          scrub: 1.25,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onLeave: () => {
-            // Free GPU video decoding pipeline on iOS when user enters subsequent sections
-            if (videoRef.current && !videoRef.current.paused) {
-              videoRef.current.pause();
-            }
-          },
-          onEnterBack: () => {
-            if (videoRef.current && videoRef.current.paused) {
-              videoRef.current.play().catch(() => {});
-            }
-          },
         },
       });
 
@@ -198,7 +171,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
         maskGroupRef.current,
         {
           scale: isIOS ? 16 : isMobile ? 20 : 22,
-          transformOrigin: `${cx}px ${cy}px`,
+          svgOrigin: `${cx} ${cy}`,
           duration: 1,
           ease: "power2.inOut",
         },
@@ -301,14 +274,14 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
           {/* Atmospheric Ambient Light Blooms living inside darkness */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-32 -left-32 w-[45vw] h-[45vw] rounded-full blur-[40px] sm:blur-[100px] opacity-40"
+            className="pointer-events-none absolute -top-32 -left-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-40"
             style={{
               background: "radial-gradient(circle, rgba(0, 238, 220, 0.22) 0%, rgba(14, 66, 74, 0.08) 50%, transparent 70%)",
             }}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[40px] sm:blur-[100px] opacity-35"
+            className="pointer-events-none absolute -bottom-32 -right-32 w-[45vw] h-[45vw] rounded-full blur-[100px] opacity-35"
             style={{
               background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.06) 50%, transparent 70%)",
             }}
@@ -324,11 +297,19 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
             aria-hidden="true"
           >
             <defs>
-              <mask id="kendits-hero-mask">
+              <mask
+                id="kendits-hero-mask"
+                maskUnits="userSpaceOnUse"
+                maskContentUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width={dimensions.width}
+                height={dimensions.height}
+              >
                 {/* 1. White rect covers entire screen (overlay is opaque) */}
                 <rect width={dimensions.width} height={dimensions.height} fill="white" />
                 {/* 2. Black KENDITS text cuts a hole through overlay (video shows through) */}
-                <g ref={maskGroupRef} style={{ transformOrigin: `${cx}px ${cy}px` }}>
+                <g ref={maskGroupRef}>
                   <text
                     x={cx}
                     y={cy}
@@ -339,6 +320,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
                     fontWeight="800"
                     fontSize={fontSize}
                     letterSpacing="-0.04em"
+                    shapeRendering="geometricPrecision"
                   >
                     KENDITS
                   </text>

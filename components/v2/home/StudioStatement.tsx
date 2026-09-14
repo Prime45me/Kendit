@@ -19,33 +19,8 @@ export const StudioStatement: React.FC<StudioStatementProps> = ({ className }) =
     <section
       id="manifesto"
       aria-label="Studio Manifesto"
-      className="relative py-28 sm:py-40 md:py-52 bg-canvas border-b border-white/[0.07] overflow-hidden z-10"
+      className="brand-gradient-surface brand-gradient-manifesto relative z-10 overflow-hidden py-28 sm:py-40 md:py-52"
     >
-      {/* Cyan bloom — top left, strong anchor */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -left-16 w-[70vw] h-[40vw] rounded-full blur-[40px] sm:blur-[160px] opacity-40 sm:opacity-50"
-        style={{
-          background: "radial-gradient(circle, rgba(0, 238, 220, 0.22) 0%, rgba(14, 66, 74, 0.10) 45%, transparent 70%)",
-        }}
-      />
-      {/* Purple bloom — bottom right, counterweight */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 -right-16 w-[60vw] h-[35vw] rounded-full blur-[40px] sm:blur-[180px] opacity-35 sm:opacity-45"
-        style={{
-          background: "radial-gradient(circle, rgba(125, 21, 137, 0.20) 0%, rgba(58, 16, 84, 0.08) 45%, transparent 70%)",
-        }}
-      />
-      {/* Warm amber accent — center, very subtle depth layer */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[20vw] rounded-full blur-[40px] sm:blur-[200px] opacity-20"
-        style={{
-          background: "radial-gradient(circle, rgba(251, 146, 60, 0.18) 0%, transparent 70%)",
-        }}
-      />
-
       <Container width="wide" className="relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Eyebrow marker */}
@@ -74,16 +49,6 @@ export const StudioStatement: React.FC<StudioStatementProps> = ({ className }) =
             <span className="text-gradient-kendits">define presence</span>
             {" "}and elevate perception.
           </motion.h2>
-
-          {/* Gradient horizon line */}
-          <motion.div
-            initial={{ scaleX: 0, originX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 sm:mt-12 h-px w-full bg-gradient-to-r from-kendits-cyan/40 via-white/10 to-transparent"
-            aria-hidden="true"
-          />
 
           {/* Supporting Narrative Paragraphs */}
           <motion.div

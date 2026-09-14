@@ -21,25 +21,8 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
     <section
       id="studio"
       aria-label="The Studio"
-      className="relative py-24 sm:py-36 md:py-44 bg-canvas border-b border-white/[0.07] overflow-hidden z-10"
+      className="brand-gradient-surface brand-gradient-studio relative z-10 overflow-hidden py-24 sm:py-36 md:py-44"
     >
-      {/* Cyan bloom — narrative column anchor */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -left-16 w-[55vw] h-[35vw] rounded-full blur-[40px] sm:blur-[160px] opacity-45"
-        style={{
-          background: "radial-gradient(circle, rgba(0, 238, 220, 0.20) 0%, rgba(14, 66, 74, 0.08) 45%, transparent 70%)",
-        }}
-      />
-      {/* Purple bloom — visual column anchor */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-16 -right-16 w-[60vw] h-[40vw] rounded-full blur-[40px] sm:blur-[180px] opacity-40"
-        style={{
-          background: "radial-gradient(circle, rgba(125, 21, 137, 0.22) 0%, rgba(58, 16, 84, 0.09) 45%, transparent 70%)",
-        }}
-      />
-
       <Container width="wide" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Narrative Column */}
