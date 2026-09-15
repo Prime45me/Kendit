@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "../ui/Container";
 
@@ -24,9 +23,9 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
       className="brand-gradient-surface brand-gradient-studio relative z-10 overflow-hidden py-16 sm:py-28 md:py-40"
     >
       <Container width="wide" className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="max-w-5xl">
           {/* Narrative Column */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
+          <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -64,31 +63,6 @@ export const StudioTeaser: React.FC<StudioTeaserProps> = ({ className }) => {
             </motion.div>
           </div>
 
-          {/* Visual Column */}
-          <div className="lg:col-span-5 order-1 lg:order-2">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/[0.12] bg-surface shadow-[0_0_60px_rgba(16,185,129,0.15),0_0_100px_rgba(0,238,220,0.06)] group"
-            >
-              <Image
-                src="/project2.jpeg"
-                alt="Kendits Creative Studio Production Environment"
-                fill
-                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700"
-              />
-              {/* Cinematic overlay — lifts on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-canvas/90 via-canvas/30 to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-700" />
-              {/* Corner accent glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-kendits-cyan/[0.06] via-transparent to-kendits-green/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-white/60 group-hover:text-white/90 transition-colors duration-500">
-                <span>Studio Archive</span>
-                <span>Accra + Koforidua // Worldwide</span>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </Container>
     </section>

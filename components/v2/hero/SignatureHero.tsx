@@ -15,14 +15,14 @@ const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffec
 export interface SignatureHeroProps {
   videoSrc?: string;
   mobileVideoSrc?: string;
-  posterSrc?: string;
+  mobilePosterSrc?: string;
   className?: string;
 }
 
 export const SignatureHero: React.FC<SignatureHeroProps> = ({
   videoSrc = "/svg-video.MOV",
   mobileVideoSrc = "/hero-video.MOV",
-  posterSrc = "/webp/cinematic_lens.webp",
+  mobilePosterSrc,
   className,
 }) => {
   const isIOS =
@@ -49,6 +49,7 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
   });
   const isMobile = dimensions.width < 768;
   const activeVideoSrc = isMobile && mobileVideoSrc ? mobileVideoSrc : videoSrc;
+  const activePosterSrc = isMobile ? mobilePosterSrc : undefined;
 
   // Track viewport dimensions with debounce and ignore mobile height jitter (address bar collapse)
   useIsomorphicLayoutEffect(() => {
@@ -279,17 +280,19 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
         <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden z-0">
           {!hasVideoError ? (
             <>
-              <img
-                src={posterSrc}
-                alt=""
-                aria-hidden="true"
-                fetchPriority="high"
-                decoding="async"
-                className={cn(
-                  "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
-                  isVideoLoaded ? "opacity-0" : "opacity-100"
-                )}
-              />
+              {activePosterSrc && (
+                <img
+                  src={activePosterSrc}
+                  alt=""
+                  aria-hidden="true"
+                  fetchPriority="high"
+                  decoding="async"
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
+                    isVideoLoaded ? "opacity-0" : "opacity-100"
+                  )}
+                />
+              )}
               <video
                 ref={videoRef}
                 src={activeVideoSrc}
@@ -311,11 +314,13 @@ export const SignatureHero: React.FC<SignatureHeroProps> = ({
             </>
           ) : (
             /* Poster fallback if video fails to load */
-            <img
-              src={posterSrc}
-              alt="Kendits Studios Cinematic Visual"
-              className="w-full h-full object-cover opacity-70"
-            />
+            activePosterSrc ? (
+              <img
+                src={activePosterSrc}
+                alt="Kendits Studios Cinematic Visual"
+                className="w-full h-full object-cover opacity-70"
+              />
+            ) : null
           )}
 
           {/* Subtle cinematic vignette — preserves rich footage color while framing edges */}

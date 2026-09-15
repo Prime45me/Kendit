@@ -15,8 +15,8 @@ export type KenditsService = {
 export const services: KenditsService[] = [
   {
     index: "01",
-    title: "Event Coverage & Film Production",
-    outcome: "Cinematic coverage and film production for events that deserve to be remembered.",
+    title: "Video Production & Editing",
+    outcome: "From concept to final cut, we produce considered films and video content for brands, people, and events.",
     capabilities: [
       "Creative Direction",
       "Event Coverage",
@@ -34,7 +34,7 @@ export const services: KenditsService[] = [
   },
   {
     index: "02",
-    title: "Brand & Creative Direction",
+    title: "Graphic Design & Brand Identity",
     outcome: "Cohesive brand identities built for modern platforms.",
     capabilities: [
       "Brand Identity",
@@ -53,13 +53,13 @@ export const services: KenditsService[] = [
   },
   {
     index: "03",
-    title: "Event Content & Social",
-    outcome: "Emotion-led content that captures the energy and meaningful moments of every event.",
+    title: "Social Media Content & Management",
+    outcome: "Consistent, platform-ready content and thoughtful account management that keep your brand connected to its audience.",
     capabilities: [
-      "Event Coverage",
-      "Candid Storytelling",
+      "Content Planning",
       "Short-form Content",
-      "Social Media Edits",
+      "Social Media Management",
+      "Community Engagement",
     ],
     media: {
       src: "/social.MP4",
@@ -70,13 +70,13 @@ export const services: KenditsService[] = [
   },
   {
     index: "04",
-    title: "Motion & Post",
-    outcome: "Dynamic post-production and VFX that elevate the narrative.",
+    title: "Advertising & Marketing",
+    outcome: "Clear campaign ideas and compelling creative that help brands reach the right audience.",
     capabilities: [
-      "Motion Graphics",
-      "VFX",
-      "Title Sequences",
-      "Offline / Online Editing",
+      "Campaign Strategy",
+      "Advertising Concepts",
+      "Campaign Creative",
+      "Promotional Content",
     ],
     media: {
       src: "/project3.jpeg",
@@ -88,8 +88,8 @@ export const services: KenditsService[] = [
   },
   {
     index: "05",
-    title: "Digital Experiences",
-    outcome: "Immersive digital products connecting brands with audiences.",
+    title: "Website Development",
+    outcome: "Thoughtful, responsive websites that connect brands with their audiences and support their goals.",
     capabilities: [
       "UI/UX Design",
       "Web Architecture",

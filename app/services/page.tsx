@@ -7,7 +7,7 @@ import { ServicesList } from "@/components/v2/services/ServicesList";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "What we create. Cinematic visual storytelling, brand identities, and dynamic post-production.",
+    "Video production, graphic design and brand identity, social media management, advertising, marketing, and website development.",
 };
 
 export default function ServicesPage() {
@@ -21,7 +21,7 @@ export default function ServicesPage() {
               Our Capabilities
             </h1>
             <p className="text-lg md:text-xl text-text-secondary font-light max-w-2xl leading-relaxed">
-              We translate brand vision into cinematic reality. From complete campaign direction to high-end post-production, our capabilities are built to deliver uncompromising quality across platforms.
+              We bring brands to life through video, design, social media, advertising, marketing, and website development.
             </p>
           </div>
 
